@@ -1,0 +1,35 @@
+.eb-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.list-heading {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.numeric-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.numeric-list li {
+    margin-bottom: 5px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #555;
+}

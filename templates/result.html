@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verse Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scripture.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a class="flex" href="/">Bible Verse App</a></h1>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Verse Result</h2>
+        <h4 class="list-heading"><span>{{ corrected_verse }}</span></h4>
+        <div class="result">
+            {% if result and result.data and result.data.content %}
+                <div class="eb-container">
+                    {{ result.data.content | safe }}
+                </div>
+            {% else %}
+                <p>No results found. Please check your spelling or try a different version.</p>
+            {% endif %}
+        </div>
+        <h3>Additional Resources</h3>
+        <ul>
+            <li><a href="https://www.biblegateway.com/passage/?search={{ corrected_verse | replace(' ', '+') }}&version=KJV" target="_blank">View on Bible Gateway</a></li>
+            <li><a href="https://thebiblesays.com/en/search?q={{ corrected_verse | replace(' ', '%20') }}&type=commentary&testament=all&book=all&page=1" target="_blank">View on The Bible Says</a></li>
+        </ul>
+        <a href="/" class="button">New Search</a>
+    </main>
+</body>
+</html>

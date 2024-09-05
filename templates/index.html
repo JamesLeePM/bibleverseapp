@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Verse Lookup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scripture.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a class="flex" href="/">Bible Verse App</a></h1>
+        </div>
+    </header>
+    <main class="container">
+        <form method="POST" action="/">
+            <input type="text" id="verse-input" name="verse" placeholder="Enter verse (e.g., John 3:16)" required>
+            <div id="suggestions" class="suggestions"></div>
+            <button type="submit" class="button">Lookup</button>
+        </form>
+    </main>
+    <script>
+        const books = ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"];
+
+        document.getElementById('verse-input').addEventListener('input', function() {
+            const input = this.value.toLowerCase();
+            const suggestions = books.filter(book => book.toLowerCase().startsWith(input));
+            const suggestionsDiv = document.getElementById('suggestions');
+            suggestionsDiv.innerHTML = '';
+            suggestions.forEach(suggestion => {
+                const div = document.createElement('div');
+                div.textContent = suggestion;
+                div.onclick = () => {
+                    document.getElementById('verse-input').value = suggestion;
+                    suggestionsDiv.innerHTML = '';
+                };
+                suggestionsDiv.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>
