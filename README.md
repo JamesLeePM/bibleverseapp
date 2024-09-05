@@ -1,7 +1,8 @@
-# Bible Verse Lookup App
+# Bible Verse App
 
 This application allows users to look up Bible verses and provides links to external resources like Bible Gateway and The Bible Says.
 
+Video demo: https://youtu.be/FQdmBKtsQcY
 ## **Features**
 
 - **Search for Bible Verses**: Use the King James Version to find specific verses.
