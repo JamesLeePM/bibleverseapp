@@ -87,7 +87,7 @@ def convert_to_osis(verse_input):
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/jamesakanoa/bibleverseapp.git
+   git clone https://github.com/jamesleepm/bibleverseapp.git
    cd bibleverseapp
 
 2. **Create a Virtual Environment**
